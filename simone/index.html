@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simoné · Experiencias que transforman</title>
+<meta name="description" content="Simoné diseña experiencias de aprendizaje con arte para que los equipos cambien cómo se comunican, lideran y se cuidan. Y medimos ese cambio.">
+<meta property="og:title" content="Simoné · Experiencias que transforman">
+<meta property="og:description" content="Experiencias de aprendizaje con arte para equipos de Gestión Humana y Mercadeo. Bogotá, Colombia.">
+<meta property="og:image" content="img/hero-taller.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: "mesa de taller". Una columna editorial sobre crema; las fotos reales de sesiones son el material,
+   el corazón concéntrico del logo (naranja dentro de magenta dentro de óxido) es el único ornamento. */
+:root {
+  --cream: #F6F0E2;      /* fondo */
+  --paper: #FCF9F2;      /* superficies */
+  --olive: #363A12;      /* tinta de marca */
+  --olive-soft: #5C6132; /* texto secundario */
+  --rust: #8A3300;       /* acento cálido */
+  --heart: #F2A03D;      /* centro del corazón */
+  --magenta: #BE1A82;    /* borde del corazón */
+  --line: #DCD3BC;
+  --band: #363A12;       /* bandas oscuras */
+  --on-band: #F6F0E2;
+  --logo-light: block;
+  --logo-dark: none;
+  --display: "Montserrat", "Avenir Next", "Segoe UI", Arial, sans-serif;
+  --body: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --step-3: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1180px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream: #1B1D0D; --paper: #24271A; --olive: #EFE9D8; --olive-soft: #C2BEA6;
+    --rust: #E8895A; --heart: #F2A03D; --magenta: #E764B3; --line: #3B3F24;
+    --band: #2C3014; --on-band: #EFE9D8; --logo-light: none; --logo-dark: block;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --cream: #1B1D0D; --paper: #24271A; --olive: #EFE9D8; --olive-soft: #C2BEA6;
+  --rust: #E8895A; --heart: #F2A03D; --magenta: #E764B3; --line: #3B3F24;
+  --band: #2C3014; --on-band: #EFE9D8; --logo-light: none; --logo-dark: block;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--cream); color: var(--olive);
+  font-family: var(--body); font-size: var(--step-0); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--magenta); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; }
+h2 { font-size: var(--step-3); font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--display); font-weight: 600; font-size: 0.8125rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--rust);
+}
+.lead { font-size: var(--step-1); max-width: 60ch; color: var(--olive-soft); }
+section { padding-block: clamp(64px, 9vw, 120px); }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-weight: 600; font-size: 1rem; letter-spacing: 0.02em;
+  padding: 14px 24px; border-radius: 999px; text-decoration: none;
+  border: 2px solid var(--olive); transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-wa { background: var(--olive); color: var(--cream); }
+.btn-wa:hover { background: var(--rust); border-color: var(--rust); }
+.btn-ghost { background: transparent; color: var(--olive); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+
+/* Encabezado */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--cream) 92%, transparent);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.logo img { height: 38px; width: auto; }
+.logo .l-light { display: var(--logo-light); }
+.logo .l-dark { display: var(--logo-dark); }
+.top nav { display: flex; gap: 28px; font-family: var(--display); font-weight: 500; font-size: 0.9375rem; }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--rust); }
+.top .btn { padding: 10px 18px; font-size: 0.9375rem; }
+@media (max-width: 860px) { .top nav { display: none; } }
+@media (max-width: 420px) { .logo img { height: 30px; } .top .btn span { display: none; } .top .btn { padding: 10px 12px; } }
+
+/* Hero */
+.hero { padding-block: clamp(40px, 6vw, 80px) 0; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.hero-copy { display: grid; gap: 24px; min-width: 0; }
+.hero h1 { font-size: clamp(2rem, 1.3rem + 3vw, 3.6rem); font-weight: 600; letter-spacing: -0.015em; }
+.hero h1 em { font-style: normal; color: var(--rust); }
+.hero .measure {
+  font-family: var(--display); font-weight: 700; font-size: var(--step-2);
+  display: flex; align-items: center; gap: 14px;
+}
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-photo { position: relative; min-width: 0; }
+.hero-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 38% center; border-radius: 220px 220px 12px 12px; }
+.tag {
+  position: absolute; left: -12px; bottom: 28px; background: var(--paper); color: var(--olive);
+  font-size: 0.875rem; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line);
+  max-width: 240px; line-height: 1.4;
+}
+.tag strong { font-family: var(--display); display: block; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rust); }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-photo img { aspect-ratio: 4 / 3; border-radius: 160px 160px 12px 12px; }
+  .tag { left: 12px; }
+}
+
+/* Corazón concéntrico (del logo) */
+.heart { width: 28px; height: 26px; flex: none; }
+
+/* Banda de acuarelas */
+.cards-band { margin-top: clamp(56px, 8vw, 96px); position: relative; }
+.cards-band img { width: 100%; height: clamp(220px, 34vw, 420px); object-fit: cover; object-position: center 60%; }
+.cards-band figcaption { font-size: 0.875rem; color: var(--olive-soft); padding-top: 10px; }
+
+/* Problema */
+.problem { background: var(--band); color: var(--on-band); }
+.problem-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 6vw, 80px); align-items: start; }
+.problem h2 { color: var(--on-band); }
+.problem .eyebrow { color: var(--heart); }
+.problem-body { display: grid; gap: 20px; font-size: var(--step-1); min-width: 0; }
+.problem-body p:first-child { font-family: var(--display); font-weight: 500; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 12px; background: color-mix(in srgb, var(--on-band) 25%, transparent); border-radius: 10px; overflow: hidden; }
+.pillar { background: var(--band); padding: 18px 16px; display: grid; gap: 4px; }
+.pillar b { font-family: var(--display); font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--heart); }
+.pillar span { font-size: 1rem; line-height: 1.4; }
+@media (max-width: 860px) { .problem-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .pillars { grid-template-columns: 1fr; } }
+
+/* Puertas */
+.doors-head { display: grid; gap: 16px; margin-bottom: clamp(32px, 5vw, 56px); }
+.doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 28px); }
+.door { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.door img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.door-body { padding: 24px 22px 26px; display: grid; gap: 14px; align-content: start; }
+.door .who { font-family: var(--display); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); }
+.door blockquote { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.375rem; line-height: 1.25; }
+.door ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 1rem; }
+.door li { padding-left: 18px; position: relative; }
+.door li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 50%; background: var(--magenta); }
+.door .start { margin-top: 4px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 0.9375rem; color: var(--olive-soft); }
+.door .start b { color: var(--olive); }
+@media (max-width: 960px) { .doors { grid-template-columns: 1fr; } .door { grid-template-columns: 0.9fr 1.1fr; grid-template-rows: none; } .door img { height: 100%; aspect-ratio: auto; } }
+@media (max-width: 620px) { .door { grid-template-columns: 1fr; } .door img { aspect-ratio: 4 / 3; height: auto; } }
+
+/* Proceso */
+.process { border-top: 1px solid var(--line); }
+.process-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 6vw, 80px); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s; min-width: 0; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.steps li::before { content: counter(s); font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: var(--rust); line-height: 1.2; }
+.steps h3 { margin-bottom: 4px; }
+.steps p { color: var(--olive-soft); font-size: 1rem; }
+@media (max-width: 860px) { .process-grid { grid-template-columns: 1fr; } }
+
+/* Medición */
+.measure-sec { background: var(--paper); border-block: 1px solid var(--line); }
+.measure-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 6vw, 80px); align-items: center; }
+.rings { position: relative; aspect-ratio: 1; max-width: 460px; width: 100%; margin-inline: auto; }
+.rings svg { width: 100%; height: auto; }
+.rings text { font-family: var(--display); font-weight: 600; fill: var(--olive); }
+.metrics { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; min-width: 0; }
+.metrics li { display: grid; grid-template-columns: 14px 1fr; gap: 14px; align-items: start; }
+.metrics i { width: 14px; height: 14px; border-radius: 50%; margin-top: 6px; }
+.metrics b { font-family: var(--display); font-weight: 700; display: block; }
+.metrics span { color: var(--olive-soft); font-size: 1rem; }
+@media (max-width: 860px) { .measure-grid { grid-template-columns: 1fr; } .rings { max-width: 340px; } }
+
+/* Galería */
+.gallery-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 28px; }
+.gallery { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: clamp(120px, 15vw, 200px); gap: 10px; }
+.gallery figure { margin: 0; border-radius: 10px; overflow: hidden; min-width: 0; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.gallery figure:hover img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { .gallery img, .btn { transition: none; } }
+.g1 { grid-column: span 3; grid-row: span 2; }
+.g2 { grid-column: span 1; grid-row: span 2; }
+.g3 { grid-column: span 2; grid-row: span 1; }
+.g4 { grid-column: span 2; grid-row: span 1; }
+.g5 { grid-column: span 2; grid-row: span 2; }
+.g6 { grid-column: span 2; grid-row: span 2; }
+.g7 { grid-column: span 2; grid-row: span 2; }
+@media (max-width: 760px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+  .g1 { grid-column: span 2; } .g2, .g3, .g4, .g5, .g6, .g7 { grid-column: span 1; grid-row: span 1; }
+  .g1 { grid-row: span 2; }
+}
+
+/* Clientes */
+.clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 32px; }
+.sector { background: var(--cream); padding: 22px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.sector .eyebrow { font-size: 0.75rem; }
+.sector ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-family: var(--display); font-weight: 600; font-size: 1.0625rem; line-height: 1.3; }
+@media (max-width: 960px) { .clients-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .clients-grid { grid-template-columns: 1fr; } }
+
+/* Nathalia */
+.founder-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(28px, 6vw, 80px); align-items: center; }
+.founder-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; border-radius: 12px 12px 200px 200px; }
+.founder-copy { display: grid; gap: 20px; min-width: 0; }
+.founder-copy p { max-width: 58ch; }
+.sign { font-family: var(--display); font-weight: 600; }
+.sign small { display: block; font-family: var(--body); font-weight: 400; color: var(--olive-soft); font-size: 0.9375rem; }
+@media (max-width: 860px) { .founder-grid { grid-template-columns: 1fr; } .founder-photo { max-width: 420px; } }
+
+/* Cierre */
+.close { background: var(--band); color: var(--on-band); text-align: left; }
+.close-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(28px, 6vw, 80px); align-items: center; }
+.close h2 { color: var(--on-band); }
+.close .lead { color: color-mix(in srgb, var(--on-band) 82%, transparent); margin-top: 18px; }
+.close .btn-wa { background: var(--heart); border-color: var(--heart); color: #2A2C0E; margin-top: 28px; }
+.close .btn-wa:hover { background: var(--on-band); border-color: var(--on-band); }
+.contact { display: grid; gap: 16px; font-size: 1rem; }
+.contact div { display: grid; gap: 2px; padding-bottom: 14px; border-bottom: 1px solid color-mix(in srgb, var(--on-band) 22%, transparent); }
+.contact b { font-family: var(--display); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--heart); }
+.contact a, .contact span { font-size: 1.125rem; text-decoration: none; user-select: all; }
+.contact a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .close-grid { grid-template-columns: 1fr; } }
+
+footer { padding-block: 28px; font-size: 0.875rem; color: var(--olive-soft); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
+
+/* Botón flotante en móvil */
+.float-wa {
+  position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20;
+  display: none; width: 56px; height: 56px; border-radius: 50%; align-items: center; justify-content: center;
+  background: var(--olive); color: var(--cream); box-shadow: 0 6px 20px rgb(0 0 0 / 0.22);
+}
+.float-wa svg { width: 28px; height: 28px; }
+@media (max-width: 860px) { .float-wa { display: flex; } }
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.13-1.35A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.05.8.82-2.97-.2-.31a8.2 8.2 0 1 1 6.91 3.81Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22a7.4 7.4 0 0 1-1.37-1.7c-.14-.25 0-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.66.31c-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.29Z"/></symbol>
+    <symbol id="hrt" viewBox="0 0 28 26"><path fill="var(--rust)" d="M14 26 1.9 14.1A7.4 7.4 0 0 1 14 3.6 7.4 7.4 0 0 1 26.1 14.1Z"/><path fill="var(--magenta)" d="M14 22.2 4.4 12.8a5 5 0 0 1 9.6-5.2 5 5 0 0 1 9.6 5.2Z"/><path fill="var(--heart)" d="M14 18 7.2 11.4a3 3 0 0 1 6.8-3.5 3 3 0 0 1 6.8 3.5Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Simoné, inicio">
+      <img class="l-light" src="img/logo.png" alt="Simoné · Wellbeing &amp; Regenerative Art" width="900" height="261">
+      <img class="l-dark" src="img/logo-claro.png" alt="Simoné · Wellbeing &amp; Regenerative Art" width="900" height="261">
+    </a>
+    <nav aria-label="Secciones">
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+      <a href="#como-medimos">Cómo medimos</a>
+      <a href="#clientes">Clientes</a>
+    </nav>
+    <a class="btn btn-wa wa-link" href="https://wa.me/573217738039" target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#wa"/></svg><span>Agenda por WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Wellbeing &amp; Regenerative Art · Bogotá</p>
+        <h1>Diseñamos experiencias de aprendizaje con arte para que los equipos cambien cómo <em>se comunican, lideran y se cuidan</em>.</h1>
+        <p class="measure"><svg class="heart" aria-hidden="true"><use href="#hrt"/></svg>Y medimos ese cambio.</p>
+        <p class="lead">Para áreas de Gestión Humana y Mercadeo que necesitan que la formación se note en el trabajo, no solo en la encuesta de satisfacción.</p>
+        <div class="cta-row">
+          <a class="btn btn-wa wa-link" href="https://wa.me/573217738039" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#wa"/></svg>Agenda una conversación
+          </a>
+          <a class="btn btn-ghost" href="#que-hacemos">Ver qué hacemos</a>
+        </div>
+      </div>
+      <figure class="hero-photo" style="margin:0">
+        <img src="img/hero-taller.jpg" alt="Un equipo se ríe mientras una participante dibuja durante una sesión de Simoné" width="1800" height="1200">
+        <figcaption class="tag"><strong>Foto real</strong>Sesión con un equipo corporativo. Así se ve aprender haciendo.</figcaption>
+      </figure>
+    </div>
+    <figure class="cards-band wrap" style="margin-bottom:0">
+      <img src="img/acuarelas.jpg" alt="Decenas de tarjetas pintadas en acuarela por participantes, sobre una mesa negra" width="2000" height="1333" loading="lazy">
+      <figcaption>Tarjetas pintadas por los participantes de una sesión. Cada una es una conversación que el equipo no había tenido.</figcaption>
+    </figure>
+  </section>
+
+  <section class="problem" id="por-que">
+    <div class="wrap problem-grid">
+      <div>
+        <p class="eyebrow">Por qué Simoné</p>
+        <h2 style="margin-top:14px">Lo que solo se escucha, se olvida.</h2>
+      </div>
+      <div class="problem-body">
+        <p>Muchas empresas invierten en capacitaciones que se aplauden y se olvidan.</p>
+        <p>En Simoné los equipos aprenden haciendo: pintan, construyen y conversan sin jerarquías. El arte convierte un tema abstracto, como la confianza o el servicio, en algo que se ve y se puede trabajar. Cada experiencia se diseña con el ADN de tu empresa.</p>
+        <div class="pillars" aria-label="Nuestro método, El Borde Visible">
+          <div class="pillar"><b>Acción</b><span>Aprender haciendo, desde John Dewey</span></div>
+          <div class="pillar"><b>Expresión</b><span>El arte como puente al conocimiento</span></div>
+          <div class="pillar"><b>Estructura</b><span>Rutinas de pensamiento visible de Harvard Project Zero</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="que-hacemos">
+    <div class="wrap">
+      <div class="doors-head">
+        <p class="eyebrow">Qué hacemos</p>
+        <h2>¿Qué quieres que cambie en tu organización?</h2>
+        <p class="lead">Empezamos por tu reto, no por un catálogo. Estas son las tres conversaciones que más nos traen las empresas.</p>
+      </div>
+      <div class="doors">
+        <article class="door">
+          <img src="img/puerta-equipos.jpg" alt="Participantes sonríen alrededor de una mesa de trabajo" width="1100" height="733" loading="lazy">
+          <div class="door-body">
+            <p class="who">Liderazgo y equipos</p>
+            <blockquote>“Mis líderes y mis equipos no se comunican.”</blockquote>
+            <ul>
+              <li>Escuela de Liderazgo con enfoque humanista</li>
+              <li>Escuela de Habilidades Blandas</li>
+              <li>Power Skills: comunicación, servicio y trabajo en equipo</li>
+            </ul>
+            <p class="start"><b>Para empezar:</b> una sesión de alto impacto de 8 horas, presencial y virtual.</p>
+          </div>
+        </article>
+        <article class="door">
+          <img src="img/puerta-bienestar.jpg" alt="Una participante pinta con calma durante una sesión" width="733" height="1100" loading="lazy" style="object-position:center 40%">
+          <div class="door-body">
+            <p class="who">Bienestar y clima</p>
+            <blockquote>“Mi gente está agotada.”</blockquote>
+            <ul>
+              <li>Equilibrio Total: programa de 6 meses para prevenir el agotamiento</li>
+              <li>Mapa de Navegación: clima y cultura en 4 meses</li>
+              <li>Ecología emocional y campañas de promoción y prevención</li>
+            </ul>
+            <p class="start"><b>Para empezar:</b> un diagnóstico con nuestra herramienta El Árbol.</p>
+          </div>
+        </article>
+        <article class="door">
+          <img src="img/puerta-marca.jpg" alt="Mano de una participante mezclando pintura en una paleta durante un evento" width="926" height="1100" loading="lazy">
+          <div class="door-body">
+            <p class="who">Mercadeo y marca</p>
+            <blockquote>“Quiero que mis clientes vivan la marca.”</blockquote>
+            <ul>
+              <li>Activaciones de marca y eventos con arte</li>
+              <li>Experiencias para clientes, colaboradores o proveedores</li>
+              <li>Aliados pedagógicos de agencias BTL</li>
+            </ul>
+            <p class="start"><b>Para empezar:</b> una activación diseñada con el ADN de tu marca.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="como-trabajamos">
+    <div class="wrap process-grid">
+      <div style="display:grid;gap:16px;align-content:start">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Paso a paso, con tu equipo en el centro.</h2>
+        <p class="lead">Un mediador líder y un mediador de apoyo acompañan cada experiencia. Al final recibes un informe, no solo fotos.</p>
+      </div>
+      <ol class="steps">
+        <li><div><h3>Diagnóstico</h3><p>Escuchamos qué quieres que cambie y medimos el punto de partida.</p></div></li>
+        <li><div><h3>Propuesta</h3><p>Cocreamos la experiencia con el ADN, el lenguaje y los retos de tu empresa.</p></div></li>
+        <li><div><h3>Experiencia</h3><p>Sesiones presenciales o virtuales donde el equipo aprende haciendo, con arte, naturaleza y juego.</p></div></li>
+        <li><div><h3>Complementos</h3><p>E-book, cápsula e infografía para que lo aprendido siga vivo después de la sesión.</p></div></li>
+        <li><div><h3>Informe</h3><p>Resultados de la medición y recomendaciones para el siguiente paso.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="measure-sec" id="como-medimos">
+    <div class="wrap measure-grid">
+      <div class="rings" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="190" fill="none" stroke="var(--line)" stroke-width="2"/>
+          <circle cx="200" cy="200" r="190" fill="none" stroke="var(--rust)" stroke-width="10" stroke-dasharray="180 1014" stroke-linecap="round" transform="rotate(-90 200 200)"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="var(--line)" stroke-width="2"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="var(--magenta)" stroke-width="10" stroke-dasharray="150 792" stroke-linecap="round" transform="rotate(-18 200 200)"/>
+          <circle cx="200" cy="200" r="110" fill="none" stroke="var(--line)" stroke-width="2"/>
+          <circle cx="200" cy="200" r="110" fill="none" stroke="var(--heart)" stroke-width="10" stroke-dasharray="120 571" stroke-linecap="round" transform="rotate(54 200 200)"/>
+          <circle cx="200" cy="200" r="70" fill="none" stroke="var(--line)" stroke-width="2"/>
+          <circle cx="200" cy="200" r="70" fill="none" stroke="var(--olive-soft)" stroke-width="10" stroke-dasharray="90 350" stroke-linecap="round" transform="rotate(126 200 200)"/>
+          <circle cx="200" cy="200" r="30" fill="var(--olive)"/>
+          <use href="#hrt" x="186" y="187" width="28" height="26"/>
+        </svg>
+      </div>
+      <div style="display:grid;gap:22px;min-width:0">
+        <p class="eyebrow">Cómo medimos</p>
+        <h2>Lo que no se mide, no se puede defender ante la gerencia.</h2>
+        <p class="lead">Cada proceso incluye medición. Así sabes qué cambió y cómo justificar la inversión.</p>
+        <ul class="metrics">
+          <li><i style="background:var(--rust)"></i><div><b>Conocimiento</b><span>Qué aprendió el equipo.</span></div></li>
+          <li><i style="background:var(--magenta)"></i><div><b>Impacto</b><span>Qué cambió en su forma de trabajar.</span></div></li>
+          <li><i style="background:var(--heart)"></i><div><b>Transformación educativa</b><span>Cómo se sostienen los nuevos hábitos en el tiempo.</span></div></li>
+          <li><i style="background:var(--olive-soft)"></i><div><b>Calidad de vida laboral</b><span>Cómo vive la gente su trabajo.</span></div></li>
+          <li><i style="background:var(--olive)"></i><div><b>Bienestar laboral</b><span>Cómo está el equipo, antes y después.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div style="display:grid;gap:12px">
+          <p class="eyebrow">Fotos reales de nuestras sesiones</p>
+          <h2>Así se ve un equipo aprendiendo.</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure class="g1"><img src="img/galeria-1.jpg" alt="Una mediadora de Simoné pinta en acuarela junto a un participante" loading="lazy" width="1200" height="800"></figure>
+        <figure class="g2"><img src="img/galeria-2.jpg" alt="Siluetas de papel de colores, tarjetas pintadas y un caballo pintado en piezas sobre una mesa" loading="lazy" width="667" height="1000"></figure>
+        <figure class="g3"><img src="img/galeria-3.jpg" alt="Dos participantes sostienen siluetas de papel rosado que dibujaron" loading="lazy" width="1200" height="800"></figure>
+        <figure class="g4"><img src="img/galeria-6.jpg" alt="Dos personas pintan juntas un paisaje en un mismo papel" loading="lazy" width="1200" height="800"></figure>
+        <figure class="g5"><img src="img/galeria-4.jpg" alt="Varias manos arman un rompecabezas fotográfico" loading="lazy" width="878" height="1000"></figure>
+        <figure class="g6"><img src="img/galeria-5.jpg" alt="Participantes pintan en acuarela un dibujo de casas" loading="lazy" width="1200" height="800"></figure>
+        <figure class="g7"><img src="img/galeria-7.jpg" alt="Vasos con lápices de colores listos para una sesión" loading="lazy" width="1200" height="776"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Han confiado en nosotros</p>
+      <h2 style="margin-top:14px">Empresas que ya vivieron la experiencia.</h2>
+      <div class="clients-grid">
+        <div class="sector"><p class="eyebrow">Financiero</p><ul><li>BNP Paribas</li><li>Bancoldex</li></ul></div>
+        <div class="sector"><p class="eyebrow">Salud</p><ul><li>Fundación Santa Fe de Bogotá</li><li>Nueva EPS</li></ul></div>
+        <div class="sector"><p class="eyebrow">Educación</p><ul><li>Uniandinos</li><li>Instituto Cultural Colombo Alemán</li><li>Dirección de Educación Policial</li></ul></div>
+        <div class="sector"><p class="eyebrow">Tecnología</p><ul><li>Naska Digital</li><li>ID Interactive</li></ul></div>
+        <div class="sector"><p class="eyebrow">Consumo e industria</p><ul><li>Doria</li><li>Ajover</li><li>Brot</li></ul></div>
+        <div class="sector"><p class="eyebrow">Centros comerciales</p><ul><li>Santa Ana</li><li>Centro Mayor</li><li>Parque La Colina</li></ul></div>
+        <div class="sector"><p class="eyebrow">Fundaciones</p><ul><li>Fundación Cakike</li></ul></div>
+        <div class="sector"><p class="eyebrow">Aliados</p><ul><li>Táktikos</li><li>Dinámika</li><li>Evoforma+</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0" id="nathalia">
+    <div class="wrap founder-grid">
+      <figure class="founder-photo" style="margin:0">
+        <img src="img/nathalia.jpg" alt="Nathalia Velasco, fundadora de Simoné, sentada en unas escaleras" width="977" height="1100" loading="lazy">
+      </figure>
+      <div class="founder-copy">
+        <p class="eyebrow">Quién está detrás</p>
+        <h2>13 años diseñando experiencias que se quedan.</h2>
+        <p>Simoné nació de una convicción: las personas cambian cuando sienten lo que aprenden. Por eso unimos arte, naturaleza y educación experiencial con la estructura de Harvard Project Zero, y lo llevamos al lenguaje de cada empresa.</p>
+        <p>Detrás de cada sesión hay un equipo de mediadores expertos en arte y educación, y un equipo de producción que se encarga de los materiales, la logística y los detalles.</p>
+        <p class="sign">Nathalia Velasco<small>Fundadora y directora de Simoné</small></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" id="contacto">
+    <div class="wrap close-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--heart)">Hablemos</p>
+        <h2 style="margin-top:14px">Cuéntanos qué quieres que cambie en tu equipo.</h2>
+        <p class="lead">En una conversación de 30 minutos entendemos tu reto y te decimos con honestidad si podemos ayudarte.</p>
+        <a class="btn btn-wa wa-link" href="https://wa.me/573217738039" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#wa"/></svg>Agenda por WhatsApp
+        </a>
+      </div>
+      <div class="contact">
+        <div><b>WhatsApp</b><a class="wa-link" href="https://wa.me/573217738039" target="_blank" rel="noopener">+57 321 773 8039</a></div>
+        <div><b>Correo</b><span>experienciasimone@gmail.com</span></div>
+        <div><b>Instagram</b><a href="https://www.instagram.com/experienciasimone/" target="_blank" rel="noopener">@experienciasimone</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Simoné · Wellbeing &amp; Regenerative Art · Bogotá, Colombia</span>
+    <span>Todas las fotos son de sesiones reales.</span>
+  </div>
+</footer>
+
+<a class="float-wa wa-link" href="https://wa.me/573217738039" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg aria-hidden="true"><use href="#wa"/></svg>
+</a>
+
+<script>
+  // Mensaje prellenado para WhatsApp
+  (function () {
+    var msg = encodeURIComponent("Hola Simoné, vi su página y quiero agendar una conversación sobre una experiencia para mi equipo.");
+    document.querySelectorAll(".wa-link").forEach(function (a) { a.href = "https://wa.me/573217738039?text=" + msg; });
+  })();
+</script>
+
+</body>
+</html>
