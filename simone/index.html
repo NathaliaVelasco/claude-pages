@@ -156,9 +156,9 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 
 /* Puertas */
 .doors-head { display: grid; gap: 16px; margin-bottom: clamp(32px, 5vw, 56px); }
-.doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 28px); }
+.doors { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2.4vw, 28px); }
 .door { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
-.door img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.door img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .door-body { padding: 24px 22px 26px; display: grid; gap: 14px; align-content: start; }
 .door .who { font-family: var(--display); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); }
 .door blockquote { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.375rem; line-height: 1.25; }
@@ -169,6 +169,18 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 .door .start b { color: var(--olive); }
 @media (max-width: 960px) { .doors { grid-template-columns: 1fr; } .door { grid-template-columns: 0.9fr 1.1fr; grid-template-rows: none; } .door img { height: 100%; aspect-ratio: auto; } }
 @media (max-width: 620px) { .door { grid-template-columns: 1fr; } .door img { aspect-ratio: 4 / 3; height: auto; } }
+
+/* Servicios */
+.services { border-top: 1px solid var(--line); }
+.services-head { display: grid; gap: 16px; margin-bottom: clamp(28px, 4vw, 44px); }
+.svc-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--olive); }
+.svc { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 12px clamp(20px, 4vw, 56px); padding-block: 22px; border-bottom: 1px solid var(--line); }
+.svc h3 { font-size: 1.3125rem; }
+.svc .svc-for { color: var(--olive-soft); font-size: 0.9375rem; margin-top: 6px; }
+.svc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; align-content: start; }
+.svc li { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.9375rem; line-height: 1.35; }
+.svc li.new { border-color: var(--magenta); }
+@media (max-width: 720px) { .svc { grid-template-columns: 1fr; } }
 
 /* Proceso */
 .process { border-top: 1px solid var(--line); }
@@ -207,9 +219,12 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 .g5 { grid-column: span 2; grid-row: span 2; }
 .g6 { grid-column: span 2; grid-row: span 2; }
 .g7 { grid-column: span 2; grid-row: span 2; }
+.g8, .g9 { grid-column: span 2; grid-row: span 2; }
+.g10 { grid-column: span 2; grid-row: span 2; }
 @media (max-width: 760px) {
   .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
-  .g1 { grid-column: span 2; } .g2, .g3, .g4, .g5, .g6, .g7 { grid-column: span 1; grid-row: span 1; }
+  .g1 { grid-column: span 2; } .g2, .g3, .g4, .g5, .g6, .g7, .g8, .g9, .g10 { grid-column: span 1; grid-row: span 1; }
+  .g10 { grid-column: span 2; grid-row: span 2; }
   .g1 { grid-row: span 2; }
 }
 
@@ -274,6 +289,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space
     </a>
     <nav aria-label="Secciones">
       <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#servicios">Servicios</a>
       <a href="#como-trabajamos">Cómo trabajamos</a>
       <a href="#como-medimos">Cómo medimos</a>
       <a href="#clientes">Clientes</a>
@@ -333,7 +349,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space
       <div class="doors-head">
         <p class="eyebrow">Qué hacemos</p>
         <h2>¿Qué quieres que cambie en tu organización?</h2>
-        <p class="lead">Empezamos por tu reto, no por un catálogo. Estas son las tres conversaciones que más nos traen las empresas.</p>
+        <p class="lead">Empezamos por tu reto, no por un catálogo. Estas son las cuatro conversaciones que más nos traen las empresas.</p>
       </div>
       <div class="doors">
         <article class="door">
@@ -375,7 +391,52 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space
             <p class="start"><b>Para empezar:</b> una activación diseñada con el ADN de tu marca.</p>
           </div>
         </article>
+        <article class="door">
+          <img src="img/puerta-sostenibilidad.jpg" alt="Operarios de una planta juegan en un tablero gigante en el piso, diseñado por Simoné para su semana de la sostenibilidad" width="1200" height="800" loading="lazy">
+          <div class="door-body">
+            <p class="who">Sostenibilidad y salud</p>
+            <blockquote>“Necesito que mi gente aprenda de sostenibilidad y salud, y que no se le olvide.”</blockquote>
+            <ul>
+              <li>Semanas de la sostenibilidad y de la salud diseñadas a la medida de tu empresa</li>
+              <li>Juegos personalizados: tableros gigantes, rompecabezas, cartas y juegos de roles con tus propios temas</li>
+              <li>Educación ambiental con Land Art y campañas de promoción y prevención</li>
+            </ul>
+            <p class="start"><b>Para empezar:</b> un juego diseñado para tu próxima semana de la sostenibilidad o de la salud.</p>
+          </div>
+        </article>
       </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicios">
+    <div class="wrap">
+      <div class="services-head">
+        <p class="eyebrow">Nuestros servicios</p>
+        <h2>Cinco formas de trabajar con Simoné.</h2>
+        <p class="lead">Desde una sesión de un día hasta un acompañamiento de seis meses. Todas se diseñan con el ADN de tu empresa e incluyen medición.</p>
+      </div>
+      <ul class="svc-list">
+        <li class="svc">
+          <div><h3>Consultorías estratégicas</h3><p class="svc-for">Acompañamiento de varios meses para clima, cultura y liderazgo.</p></div>
+          <ul><li>Clima y cultura organizacional · Mapa de Navegación</li><li>Prevención del agotamiento laboral · Equilibrio Total</li><li>Mentorías individuales para líderes</li></ul>
+        </li>
+        <li class="svc">
+          <div><h3>Programas y escuelas de formación</h3><p class="svc-for">Procesos por módulos con El Borde Visible.</p></div>
+          <ul><li>Escuela de Liderazgo · modelo humanista</li><li>Escuela de Habilidades Blandas</li><li>Escuela de Ecología Emocional</li></ul>
+        </li>
+        <li class="svc">
+          <div><h3>Campañas educativas</h3><p class="svc-for">Temas complejos convertidos en aprendizaje que se vive y se recuerda.</p></div>
+          <ul><li>Semanas de la sostenibilidad y de la salud</li><li class="new">Juegos didácticos personalizados</li><li>Promoción y prevención en salud física y mental</li><li>Formación ambiental y ODS con Land Art</li></ul>
+        </li>
+        <li class="svc">
+          <div><h3>Experiencias focalizadas</h3><p class="svc-for">Sesiones de alto impacto para un reto concreto.</p></div>
+          <ul><li>Power Skills: comunicación, servicio y trabajo en equipo</li><li>Educación ambiental y sostenibilidad</li></ul>
+        </li>
+        <li class="svc">
+          <div><h3>Activaciones de marca y eventos</h3><p class="svc-for">Experiencias con arte para clientes, colaboradores y proveedores.</p></div>
+          <ul><li>Experiencias para clientes y aliados</li><li>Eventos con el ADN de tu marca</li><li>Aliados pedagógicos de agencias BTL</li></ul>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -443,6 +504,9 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space
         <figure class="g5"><img src="img/galeria-4.jpg" alt="Varias manos arman un rompecabezas fotográfico" loading="lazy" width="878" height="1000"></figure>
         <figure class="g6"><img src="img/galeria-5.jpg" alt="Participantes pintan en acuarela un dibujo de casas" loading="lazy" width="1200" height="800"></figure>
         <figure class="g7"><img src="img/galeria-7.jpg" alt="Vasos con lápices de colores listos para una sesión" loading="lazy" width="1200" height="776"></figure>
+        <figure class="g8"><img src="img/galeria-8.jpg" alt="Piezas de un rompecabezas con valores ambientales como Ser honesto y Conocer para cuidar" loading="lazy" width="1200" height="823"></figure>
+        <figure class="g9"><img src="img/galeria-9.jpg" alt="Trabajadoras de una planta arman juntas un juego de sostenibilidad sobre una mesa" loading="lazy" width="1200" height="800"></figure>
+        <figure class="g10"><img src="img/galeria-10.jpg" alt="Cartas de un juego didáctico en salud frente a un mural ilustrado" loading="lazy" width="725" height="1000"></figure>
       </div>
     </div>
   </section>
