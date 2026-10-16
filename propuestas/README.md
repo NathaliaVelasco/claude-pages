@@ -11,13 +11,9 @@ Presentaciones comerciales publicadas con GitHub Pages para compartirlas con cli
 |---|---|---|
 | Evoforma · Megalabs | La Ruta de la Huella — Convención de Ventas 2027 | [Ver presentación](https://nathaliavelasco.github.io/claude-pages/propuestas/megalabs-la-ruta-de-la-huella/) |
 
-## Cómo navegar una presentación
+## Cómo se ve una propuesta
 
-- Flechas del teclado, barra espaciadora o los botones ‹ › de la parte inferior.
-- En celular: deslizar a la izquierda o a la derecha.
-- Botón ⛶: pantalla completa.
-- Enlace a una diapositiva concreta: agregar `#número` al final de la dirección (ej. `…/#13` abre la inversión).
-- Imprimir o guardar como PDF desde el navegador: cada diapositiva sale en una página.
+Cada propuesta es una página web que se recorre bajando, con un menú de secciones fijo arriba. Se puede enlazar directo a una sección con `#inversion`, `#beneficios`, etc.
 
 ## Agregar una propuesta nueva
 
