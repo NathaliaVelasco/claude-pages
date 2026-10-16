@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Propuestas comerciales · Simoné</title>
+<link rel="icon" href="megalabs-la-ruta-de-la-huella/img/simbolo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..800&family=Cormorant+Garamond:ital,wght@1,500&display=swap">
+<style>
+  :root { --olive: #373A0E; --rust: #8A3200; --magenta: #C2188B; --orange: #F5A33F; --cream: #F7F2E8; --sand: #EFE6D6; --card: #FFFDF8; --text: #4A4C2E; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Montserrat', Arial, sans-serif; background: var(--cream); color: var(--olive); min-height: 100vh; }
+  header { max-width: 1120px; margin: 0 auto; padding: 56px 16px 32px; display: flex; flex-direction: column; gap: 24px; }
+  header img { width: 260px; height: 72px; object-fit: cover; mix-blend-mode: multiply; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--rust); }
+  h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; line-height: 1.1; }
+  .lead { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(20px, 2.6vw, 26px); color: var(--magenta); }
+  main { max-width: 1120px; margin: 0 auto; padding: 0 16px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  a.card { display: flex; flex-direction: column; background: var(--card); border-radius: 18px; overflow: hidden; text-decoration: none; color: inherit; box-shadow: 0 1px 0 rgba(55,58,14,.08); transition: transform .2s, box-shadow .2s; }
+  a.card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(55,58,14,.14); }
+  a.card:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+  .card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .card .body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 8px; }
+  .card .client { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--rust); }
+  .card h2 { font-size: 22px; font-weight: 700; line-height: 1.2; }
+  .card p { font-size: 15px; line-height: 1.5; color: var(--text); }
+  .card .meta { margin-top: 6px; font-size: 13px; color: #7A7C5A; }
+  footer { text-align: center; padding: 0 16px 40px; font-size: 13px; color: #7A7C5A; }
+</style>
+</head>
+<body>
+<header>
+  <img src="megalabs-la-ruta-de-la-huella/img/logo-simone.png" alt="Simoné · Desarrollo humano a través del arte">
+  <p class="eyebrow">Propuestas comerciales</p>
+  <h1>Experiencias que dejan huella</h1>
+  <p class="lead">Cada propuesta, lista para presentarse y compartirse con un enlace.</p>
+</header>
+<main>
+  <!-- Para agregar una propuesta: copia este bloque <a class="card"> y cambia enlace, imagen y textos. -->
+  <a class="card" href="megalabs-la-ruta-de-la-huella/">
+    <img src="megalabs-la-ruta-de-la-huella/img/entrada.jpg" alt="Entrada del evento La Ruta de la Huella">
+    <div class="body">
+      <span class="client">Evoforma · Megalabs</span>
+      <h2>La Ruta de la Huella</h2>
+      <p>Propuesta de inversión para la Convención de Ventas 2027: 300 participantes, 6 estaciones, El Acuario y componente digital.</p>
+      <span class="meta">Octubre 2026 · 14 diapositivas</span>
+    </div>
+  </a>
+</main>
+<footer>Simoné · nathalia@experienciasimone.com · experienciasimone@gmail.com</footer>
+</body>
+</html>
